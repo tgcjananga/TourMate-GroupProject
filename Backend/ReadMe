@@ -1,0 +1,7 @@
+Lanuage   : Java
+Framework : Spring
+Database  : MySQL
+
+To connect MySQL local database change "username" and "password" in src/main/resources/application.properties
+How to run : run src/main/java/RestapiApplication.java
+pom.xml include all Dependencies
