@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Signup() {
   const initialFormData = {
+    username: "",
     firstname: "",
     lastname: "",
     email: "",
@@ -57,23 +59,25 @@ export default function Signup() {
         body: JSON.stringify(formDataWithPlacesList),
       });
 
-      // Log the response to the console
-      const responseData = await response.json();
-      console.log("Response from the backend:", responseData);
+      // Log the raw response
+      console.log("Raw response:", response);
 
+      // Check if response is not empty
       if (response.ok) {
-        console.log("Form Data Submitted Successfully");
-        alert("Form is submitted");
-        setFormData(initialFormData);
+        const responseData = await response.json();
+        console.log("Response from the backend:", responseData);
+
+        if (responseData) {
+          console.log("Form Data Submitted Successfully");
+          alert("Form is submitted");
+          setFormData(initialFormData);
+        } else {
+          console.error("Failed to submit form data:", response.status, responseData);
+          alert(`Failed to submit form data: ${response.status} - ${responseData}`);
+        }
       } else {
-        console.error(
-          "Failed to submit form data:",
-          response.status,
-          responseData
-        );
-        alert(
-          `Failed to submit form data: ${response.status} - ${responseData}`
-        );
+        console.error("Failed to submit form data:", response.status);
+        alert(`Failed to submit form data: ${response.status}`);
       }
     } catch (error) {
       console.error("Error submitting form data:", error);
@@ -82,109 +86,141 @@ export default function Signup() {
   };
 
   return (
-    <div>
+    <div className="container mt-5">
       <form onSubmit={handleSubmit}>
-        <label htmlFor="firstname">First Name</label>
-        <input
-          type="text"
-          name="firstname"
-          value={formData.firstname}
-          onChange={handleInputChange}
-          required
-        />{" "}
-        <br />
-        <label htmlFor="lastname">Last Name</label>
-        <input
-          type="text"
-          name="lastname"
-          value={formData.lastname}
-          onChange={handleInputChange}
-          required
-        />{" "}
-        <br />
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          required
-        />{" "}
-        <br />
-        {/* Ensure all other fields are also controlled */}
-        <label htmlFor="gender">Gender:</label>
-        <select
-          name="gender"
-          value={formData.gender}
-          onChange={handleInputChange}
-          required
-        >
-          <option value="">Select your gender</option>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-          <option value="other">Other</option>
-          <option value="prefer_not_to_say">Prefer not to say</option>
-        </select>{" "}
-        <br />
-        <label htmlFor="age">Age:</label>
-        <input
-          type="number"
-          name="age"
-          value={formData.age}
-          onChange={handleInputChange}
-          required
-        />
-        <br />
-        <label htmlFor="places">Select your preferred places:</label>
-        <br />
-        <input
-          type="checkbox"
-          name="forest"
-          onChange={handleInputChange}
-          checked={formData.places.forest}
-        />
-        <label htmlFor="forest"> Forest</label>
-        <br />
-        <input
-          type="checkbox"
-          name="sea"
-          onChange={handleInputChange}
-          checked={formData.places.sea}
-        />
-        <label htmlFor="sea"> Sea</label>
-        <br />
-        <input
-          type="checkbox"
-          name="desert"
-          onChange={handleInputChange}
-          checked={formData.places.desert}
-        />
-        <label htmlFor="desert"> Desert </label>
-        <br />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-          required
-        />{" "}
-        <br />
-        <label htmlFor="usertype">Are you a local or a foreigner?</label>
-        <select
-          name="usertype"
-          value={formData.usertype}
-          onChange={handleInputChange}
-        >
-          <option value="local">Local</option>
-          <option value="foreigner">Foreigner</option>
-        </select>{" "}
-        <br />
+        <div className="form-group">
+          <label htmlFor="username">Username</label>
+          <input
+            type="text"
+            className="form-control"
+            name="username"
+            value={formData.username}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="firstname">First Name</label>
+          <input
+            type="text"
+            className="form-control"
+            name="firstname"
+            value={formData.firstname}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="lastname">Last Name</label>
+          <input
+            type="text"
+            className="form-control"
+            name="lastname"
+            value={formData.lastname}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            className="form-control"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="gender">Gender</label>
+          <select
+            className="form-control"
+            name="gender"
+            value={formData.gender}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+            <option value="prefer_not_to_say">Prefer not to say</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="age">Age</label>
+          <input
+            type="number"
+            className="form-control"
+            name="age"
+            value={formData.age}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label>Select your preferred places:</label>
+          <div className="form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              name="forest"
+              onChange={handleInputChange}
+              checked={formData.places.forest}
+            />
+            <label className="form-check-label" htmlFor="forest">Forest</label>
+          </div>
+          <div className="form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              name="sea"
+              onChange={handleInputChange}
+              checked={formData.places.sea}
+            />
+            <label className="form-check-label" htmlFor="sea">Sea</label>
+          </div>
+          <div className="form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              name="desert"
+              onChange={handleInputChange}
+              checked={formData.places.desert}
+            />
+            <label className="form-check-label" htmlFor="desert">Desert</label>
+          </div>
+        </div>
+        <div className="form-group">
+          <label htmlFor="password">Password</label>
+          <input
+            type="password"
+            className="form-control"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="usertype">Are you a local or a foreigner?</label>
+          <select
+            className="form-control"
+            name="usertype"
+            value={formData.usertype}
+            onChange={handleInputChange}
+          >
+            <option value="local">Local</option>
+            <option value="foreigner">Foreigner</option>
+          </select>
+        </div>
         {formData.usertype === "local" ? (
-          <div>
-            <label htmlFor="nic">NIC Number:</label>
+          <div className="form-group">
+            <label htmlFor="nic">NIC Number</label>
             <input
               type="text"
+              className="form-control"
               name="identifier"
               value={formData.identifier}
               onChange={handleInputChange}
@@ -192,23 +228,23 @@ export default function Signup() {
             />
           </div>
         ) : (
-          <div>
-            <label htmlFor="passport">Passport Number:</label>
+          <div className="form-group">
+            <label htmlFor="passport">Passport Number</label>
             <input
               type="text"
+              className="form-control"
               name="identifier"
               value={formData.identifier}
               onChange={handleInputChange}
               required
             />
           </div>
-        )}{" "}
-        <br />
-        <button type="submit" value="submit">
+        )}
+        <button type="submit" className="btn btn-primary">
           SIGN UP
         </button>
         <p>
-          Alredy have an account? <Link to="/login">Sign in</Link>
+          Already have an account? <Link to="/login">Sign in</Link>
         </p>
       </form>
     </div>
