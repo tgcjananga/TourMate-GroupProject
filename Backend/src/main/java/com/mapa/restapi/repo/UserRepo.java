@@ -1,10 +1,17 @@
 package com.mapa.restapi.repo;
 
-import com.mapa.restapi.model.User;
+import java.util.Optional;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.mapa.restapi.entity.User;
 
-public interface UserRepo extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepo extends JpaRepository<User,Long> {
 
-   User getByEmail(String email);
+    Optional<User> getByUsername(String username);
+    Optional<User> findByUsername(String username);
 
+
+    
 }
