@@ -11,10 +11,19 @@ const App = () => {
     <Router>
       <div>   
         <Routes>
+<<<<<<< Updated upstream
           <Route path="/" element={<Login/>}/>  {/* Initially load Log in page */}   
           <Route path="/Signup" element={<Signup/>}/> 
           <Route path="/Login" element={<Login/>}/> 
           <Route path="/Home" element={<Home/>}/>
+=======
+          <Route element={<ProtectedRoutes/>}> 
+          <Route path="/Home" element={<Home/>}/>
+          </Route> 
+          <Route path="/" element={<Login/>}/>  {/* Initially load Log in page */}   
+          <Route path="/Signup" element={<Signup/>}/> 
+          <Route path="/Login" element={<Login/>}/> 
+>>>>>>> Stashed changes
         </Routes>
       </div>
     </Router>
