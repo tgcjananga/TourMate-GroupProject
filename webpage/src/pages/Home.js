@@ -4,10 +4,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import backgroundVideo from '../istockphoto-1362880565-640_adpp_is.mp4';
-import './Home.css'; 
+import './Home.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function Home() {
   const { isAuthenticated, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const handleFindRoute = () => {
+    navigate('/find-route');
+  };
+
+  const handleFindHotel = () => {
+    navigate('/find-hotel');
+  };
+
+  const handleFindRestaurant = () => {
+    navigate('/find-restaurant');
+  };
+
+  const handleSchedulePlan = () => {
+    navigate('/schedule-plan');
+  };
 
   return (
     <div className="container mt-5">
@@ -27,11 +45,19 @@ export default function Home() {
           <li>Share your travel experiences and memories</li>
           <li>Get personalized recommendations and travel tips</li>
         </ul>
-        {isAuthenticated && 
-          <button className="btn btn-danger mt-3" onClick={logout}>
-            <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-          </button>
-        }
+        <div className="btn-group mt-3" role="group">
+          {isAuthenticated && 
+            <>
+              <button className="btn btn-primary" onClick={handleFindRoute}>Find a Route</button>
+              <button className="btn btn-primary" onClick={handleFindHotel}>Find a Hotel</button>
+              <button className="btn btn-primary" onClick={handleFindRestaurant}>Find a Restaurant</button>
+              <button className="btn btn-primary" onClick={handleSchedulePlan}>Schedule a Plan</button>
+              <button className="btn btn-danger" onClick={logout}>
+                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+              </button>
+            </>
+          }
+        </div>
       </div>
       <video autoPlay loop muted className="video-background">
         <source src={backgroundVideo} type="video/mp4" />
