@@ -9,6 +9,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +24,6 @@ public class User {
     private String lastname;
     @Column(unique=true)
     private String email;
-    @Column(unique=true)
-    private String username;
     private String password;
     private String gender;
     private int age;
@@ -32,5 +31,7 @@ public class User {
     private String identifier;
     @ElementCollection
     private List<String> places;
+    @OneToOne(mappedBy = "user")
+    private ForgotPassword forgotPassword;
     
 }

@@ -2,30 +2,30 @@ import './App.css';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Home from './pages/Home';
-import { BrowserRouter as Router,Route,Routes} from 'react-router-dom';
+import ForgotPassword from './pages/ForgotPassword'; // Import ForgotPassword component
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { AuthProvider } from './utils/AuthContext';
 import ProtectedRoutes from './utils/ProtectedRoutes';
-
 
 const App = () => {
   return (
     <AuthProvider>
-    <Router>
-      <div>   
-        <Routes>
-          <Route element={<ProtectedRoutes/>}>
-          <Route path="/Home" element={<Home/>}/>
-          </Route>
-          <Route path="/" element={<Login/>}/>  {/* Initially load Log in page */}   
-          <Route path="/Signup" element={<Signup/>}/> 
-          <Route path="/Login" element={<Login/>}/> 
-          
-        </Routes>
-      </div>
-    </Router>
+      <Router>
+        <div>
+          <Routes>
+            {/* Protected routes require authentication */}
+            <Route element={<ProtectedRoutes />}>
+              <Route path="/Home" element={<Home />} />
+            </Route>
+            {/* Public routes */}
+            <Route path="/" element={<Login />} /> {/* Initially load Log in page */}
+            <Route path="/Signup" element={<Signup />} />
+            <Route path="/Login" element={<Login />} />
+            <Route path="/ForgotPassword" element={<ForgotPassword />} /> {/* Route for ForgotPassword */}
+          </Routes>
+        </div>
+      </Router>
     </AuthProvider>
-    
-    
   );
 };
 

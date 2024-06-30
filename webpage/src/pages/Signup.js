@@ -4,7 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function Signup() {
   const initialFormData = {
-    username: "",
     firstname: "",
     lastname: "",
     email: "",
@@ -59,22 +58,11 @@ export default function Signup() {
         body: JSON.stringify(formDataWithPlacesList),
       });
 
-      // Log the raw response
-      console.log("Raw response:", response);
-
-      // Check if response is not empty
       if (response.ok) {
         const responseData = await response.json();
         console.log("Response from the backend:", responseData);
-
-        if (responseData) {
-          console.log("Form Data Submitted Successfully");
-          alert("Form is submitted");
-          setFormData(initialFormData);
-        } else {
-          console.error("Failed to submit form data:", response.status, responseData);
-          alert(`Failed to submit form data: ${response.status} - ${responseData}`);
-        }
+        alert("Form submitted successfully");
+        setFormData(initialFormData);
       } else {
         console.error("Failed to submit form data:", response.status);
         alert(`Failed to submit form data: ${response.status}`);
@@ -88,17 +76,6 @@ export default function Signup() {
   return (
     <div className="container mt-5">
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            name="username"
-            value={formData.username}
-            onChange={handleInputChange}
-            required
-          />
-        </div>
         <div className="form-group">
           <label htmlFor="firstname">First Name</label>
           <input

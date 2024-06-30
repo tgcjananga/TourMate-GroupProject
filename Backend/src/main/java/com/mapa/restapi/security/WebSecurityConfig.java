@@ -53,7 +53,6 @@ public class WebSecurityConfig {
     public DaoAuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        System.out.println("Hello");
         provider.setPasswordEncoder(passwordEncoder()); // Ensure BCryptPasswordEncoder is used
         return provider;
     }
@@ -70,7 +69,7 @@ public class WebSecurityConfig {
             .exceptionHandling(exception -> exception.authenticationEntryPoint(unauthorizedHandler)) //Auth Entry Point
             .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS)) //Session Management - Stateless
             .authorizeHttpRequests(auth ->
-                auth.requestMatchers("/signup","/auth/login").permitAll() //Allow these parts to be accessed without authentication
+                auth.requestMatchers("/signup","/auth/login","/forgotPassword/**").permitAll() //Allow these parts to be accessed without authentication
                     .anyRequest().authenticated() //Every other path is authenticated
             );
 

@@ -1,12 +1,13 @@
 package com.mapa.restapi.dto;
 import lombok.Getter;
 import lombok.Setter;
+
 @Getter
 @Setter
+public class ChangePasswordDto {
 
-
-public class LoginDto {
-    private String email;
     private String password;
-}
+    private String repeatPassword;
 
+    
+}

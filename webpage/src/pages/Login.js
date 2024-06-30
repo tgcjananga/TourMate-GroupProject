@@ -7,36 +7,33 @@ import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 export default function Logtest() {
   const { login } = useAuth();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate(); // For navigation after successful login
+  const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      console.log("Sending login request to backend...");
       const response = await fetch("http://localhost:1200/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
-        const jwtToken = await response.text(); // Read the JWT token from the response body
-        console.log("Login successful, received JWT token:", jwtToken);
-        // Store the token securely, e.g., in localStorage or session storage
-        login(jwtToken); // Update the auth context with the JWT token
-        console.log("Navigating to Home...");
+        const jwtToken = await response.text();
+        login(jwtToken);
         navigate("/Home");
       } else {
-        // Login failed, handle error (e.g., show error message)
         console.error("Login failed with status:", response.status);
+        // Handle error: Show error message to the user
       }
     } catch (error) {
       console.error("Error during login:", error);
+      // Handle error: Show error message to the user
     }
   };
 
@@ -48,13 +45,13 @@ export default function Logtest() {
     <div className="container mt-5">
       <form onSubmit={handleSubmit} className="w-50 mx-auto">
         <div className="form-group">
-          <label htmlFor="username">Username</label>
+          <label htmlFor="email">Email</label>
           <input
-            type="text"
+            type="email"
             className="form-control"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
           />
         </div>
@@ -79,6 +76,11 @@ export default function Logtest() {
         <button type="submit" className="btn btn-primary mt-3">
           Log In
         </button>
+        <div className="text-center mt-3">
+          <Link to="/ForgotPassword" className="btn btn-link">
+            Forgot Password?
+          </Link>
+        </div>
       </form>
       <div className="text-center mt-3">
         <label>Don't have an account?</label>
