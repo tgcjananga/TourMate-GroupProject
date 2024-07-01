@@ -29,7 +29,7 @@ public class JwtUtils {
 
         // Generate JWT token for the user
         return Jwts.builder()
-                .setSubject(userDetails.getUsername())
+                .setSubject(userDetails.getUsername()) // Assuming userDetails.getUsername() returns email
                 .setIssuedAt(new Date())
                 .setExpiration(new Date((new Date()).getTime() + 1000 * 60 * 60 * 24))
                 .signWith(key(), SignatureAlgorithm.HS256)
@@ -43,14 +43,10 @@ public class JwtUtils {
         }catch (Exception e){
             e.printStackTrace();
             return false;
-            }
-
-
         }
-        public String getUsernameFromJwtToken(String token){
-            return Jwts.parserBuilder().setSigningKey(key()).build().parseClaimsJws(token).getBody().getSubject();
-        }
-
-        
     }
 
+    public String getUsernameFromJwtToken(String token){
+        return Jwts.parserBuilder().setSigningKey(key()).build().parseClaimsJws(token).getBody().getSubject();
+    }
+}
