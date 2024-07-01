@@ -1,10 +1,11 @@
 package com.mapa.restapi.controller;
 
 
-
-import com.mapa.restapi.entity.User;
+import com.mapa.restapi.model.User;
 import com.mapa.restapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 
@@ -25,14 +26,17 @@ public class ApiController {
 
 
     @PostMapping("/signup")
-    public User createUser(@RequestBody User user) {
-        System.out.println("Saved Successfully");
-        return userService.createUser(user);
-        
+    public ResponseEntity<?> createUser(@RequestBody User user) {
+        if (userService.findByEmail(user.getEmail())!=null){
+            return ResponseEntity.badRequest().body("Email Already Registered");
+        }
+
+        String msg=userService.saveUser(user);
+
+        return ResponseEntity.status(HttpStatus.OK).body(msg);
     }
 
-    
-    @DeleteMapping("delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String deleteUser(@PathVariable long id) {
         userService.deleteUser(id);
         return "Deleted";

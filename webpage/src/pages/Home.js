@@ -1,14 +1,12 @@
 import React from 'react';
-import { useAuth } from '../utils/AuthContext';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 import backgroundVideo from '../istockphoto-1362880565-640_adpp_is.mp4';
 import './Home.css';
 import { useNavigate } from 'react-router-dom';
 
+
+
 export default function Home() {
-  const { isAuthenticated, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleFindRoute = () => {
@@ -23,11 +21,18 @@ export default function Home() {
     navigate('/find-restaurant');
   };
 
-  const handleSchedulePlan = () => {
-    navigate('/schedule-plan');
+  
+  const btnStyle = {
+    backgroundColor: '#007bff',
+    color: '#ffffff',
+    border: 'none',
+    padding: '10px 20px',
+    cursor: 'pointer',
+    borderRadius: '4px',
+    marginRight: '16px' // Adjust the margin here
   };
-
-  return (
+  return (    
+    <div>
     <div className="container mt-5">
       <div className="jumbotron">
         <h1 className="display-4">Welcome to Tourmate</h1>
@@ -45,24 +50,20 @@ export default function Home() {
           <li>Share your travel experiences and memories</li>
           <li>Get personalized recommendations and travel tips</li>
         </ul>
-        <div className="btn-group mt-3" role="group">
-          {isAuthenticated && 
-            <>
-              <button className="btn btn-primary" onClick={handleFindRoute}>Find a Route</button>
-              <button className="btn btn-primary" onClick={handleFindHotel}>Find a Hotel</button>
-              <button className="btn btn-primary" onClick={handleFindRestaurant}>Find a Restaurant</button>
-              <button className="btn btn-primary" onClick={handleSchedulePlan}>Schedule a Plan</button>
-              <button className="btn btn-danger" onClick={logout}>
-                <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-              </button>
-            </>
-          }
+        <div>{
+          
+        <>
+            <button style={btnStyle} onClick={handleFindRoute}>Find a Route</button>
+            <button style={btnStyle} onClick={handleFindHotel}>Find a Hotel</button>
+            <button style={btnStyle} onClick={handleFindRestaurant}>Find a Restaurant</button>
+        </>
+        }
         </div>
       </div>
       <video autoPlay loop muted className="video-background">
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
-    </div>
+    </div></div>
   );
 }

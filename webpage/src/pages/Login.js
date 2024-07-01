@@ -1,19 +1,44 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import {
+  Avatar,
+  FormControlLabel,
+  Grid,
+  Paper,
+  TextField,
+  Link,
+  Typography,
+} from "@mui/material";
+import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+import Checkbox from "@mui/material/Checkbox";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 export default function Logtest() {
   const { login } = useAuth();
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false); // State for "Remember me" checkbox
   const navigate = useNavigate(); // For navigation after successful login
+  const [errorMessage, setErrorMessage] = useState('');
+
+  // Load remember me state from localStorage on component mount
+  useEffect(() => {
+    const rememberMeChecked = localStorage.getItem("rememberMe") === "true";
+    setRememberMe(rememberMeChecked);
+    if (rememberMeChecked) {
+      const savedEmail = localStorage.getItem("email") || "";
+      setEmail(savedEmail);
+    }
+  }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       console.log("Sending login request to backend...");
       const response = await fetch("http://localhost:1200/auth/login", {
@@ -21,7 +46,7 @@ export default function Logtest() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (response.ok) {
@@ -29,64 +54,121 @@ export default function Logtest() {
         console.log("Login successful, received JWT token:", jwtToken);
         // Store the token securely, e.g., in localStorage or session storage
         login(jwtToken); // Update the auth context with the JWT token
-        console.log("Navigating to Home...");
-        navigate("/Home");
+
+        // Save email and rememberMe state to localStorage if rememberMe is checked
+        if (rememberMe) {
+          localStorage.setItem("email", email);
+          localStorage.setItem("rememberMe", true);
+        } else {
+          localStorage.removeItem("email");
+          localStorage.removeItem("rememberMe");
+        }
+
+        // Navigate to Dashboard
+        console.log("Navigating to Dashboard...");
+        navigate("/Dashboard");
       } else {
         // Login failed, handle error (e.g., show error message)
         console.error("Login failed with status:", response.status);
+
+        setErrorMessage('Incorrect email or password. Please try again.');
       }
     } catch (error) {
       console.error("Error during login:", error);
+      setErrorMessage('An error occurred during login. Please try again.');
     }
   };
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
+  const handleRememberMe = (event) => {
+    setRememberMe(event.target.checked);
+  };
 
+  const paperstyle = {
+    padding: 20,
+    height: "70vh",
+    width: 300,
+    margin: "20px auto",
+  };
+  const avatarStyle = { backgroundColor: "#1bbd7e" };
+  const btstyle = { margin: "8px 0" };
   return (
-    <div className="container mt-5">
-      <form onSubmit={handleSubmit} className="w-50 mx-auto">
-        <div className="form-group">
-          <label htmlFor="username">Username</label>
-          <input
-            type="text"
-            className="form-control"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="password">Password</label>
-          <div className="input-group">
-            <input
+    <div>
+      <form onSubmit={handleSubmit}>
+        <Grid>
+          <Paper elevation={10} style={paperstyle}>
+            <Grid align="center">
+              <Avatar style={avatarStyle}>
+                <LockOutlinedIcon />
+              </Avatar>
+              <h2>Sign in</h2>
+            </Grid>
+            <TextField
+              label="Email"
+              style={{ margin: "8px 0" }}
+              placeholder="Enter email"
+              fullWidth
+              required
+              id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              label="Password"
+              style={{ margin: "8px 0" }}
+              placeholder="Enter password"
               type={showPassword ? "text" : "password"}
-              className="form-control"
+              fullWidth
+              required
               id="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              required
+              InputProps={{
+                endAdornment: (
+                  <IconButton
+                    aria-label="toggle password visibility"
+                    onClick={togglePasswordVisibility}
+                    edge="end"
+                  >
+                    {showPassword ? <VisibilityOffIcon /> : <VisibilityIcon />}
+                  </IconButton>
+                ),
+              }}
             />
-            <div className="input-group-append">
-              <span className="input-group-text" onClick={togglePasswordVisibility} style={{ cursor: 'pointer' }}>
-                <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-              </span>
-            </div>
-          </div>
-        </div>
-        <button type="submit" className="btn btn-primary mt-3">
-          Log In
-        </button>
+            <FormControlLabel
+              control={<Checkbox 
+                name="checkedB" 
+                color="primary" 
+                checked={rememberMe}
+                onChange={handleRememberMe}/>}
+              label="Remember me"
+            />
+            {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+            <Button
+              type="submit"
+              color="primary"
+              variant="contained"
+              style={btstyle}
+              fullWidth
+            >
+              Sign in
+            </Button>
+            <Typography>
+              <Link href="ForgotPassword" variant="plain">
+                Forgot password?
+              </Link>
+            </Typography>
+            <Typography style={{ margin: "75px 0" }}>
+              Do you haven't an account?
+              <Link href="Signup" variant="plain">
+                Sign Up
+              </Link>
+            </Typography>
+          </Paper>
+        </Grid>
       </form>
-      <div className="text-center mt-3">
-        <label>Don't have an account?</label>
-        <br />
-        <Link to="/Signup" className="btn btn-secondary mt-2">
-          Sign Up
-        </Link>
-      </div>
     </div>
   );
 }
