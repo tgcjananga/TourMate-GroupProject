@@ -11,7 +11,7 @@
 	<groupId>com.tourmate</groupId>
 	<artifactId>tourmate</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>tour mate</name>
+	<name>tourmate</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>17</java.version>
@@ -64,6 +64,11 @@
 			<version>0.11.5</version>
 			<scope>runtime</scope>
 		</dependency>
+
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-mail</artifactId>
+	</dependency>
 	</dependencies>
 
 	
