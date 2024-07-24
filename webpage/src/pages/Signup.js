@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import {
   Box,
   Button,
-  Card,
+  //Card,
   FormHelperText,
   Grid,
   Paper,
@@ -29,20 +29,15 @@ const textstyle = {
 };
 export default function Signup() {
   const initialFormData = {
-    username: "",
     firstname: "",
     lastname: "",
     email: "",
     gender: "",
     age: "",
-    places: {
-      forest: false,
-      sea: false,
-      desert: false,
-    },
     usertype: "local",
     identifier: "",
     password: "",
+    places: {} 
   };
 
   const [formData, setFormData] = useState(initialFormData);
@@ -148,26 +143,7 @@ export default function Signup() {
               />
               <Typography>
                 <form onSubmit={handleSubmit}>
-                  <div>
-                    {/* <FormLabel >Username</FormLabel><br/> */}
-                    <label htmlFor="username">Username</label>
-                    <br />
-                    <TextField
-                      placeholder="Username"
-                      type="text"
-                      name="username"
-                      value={formData.username}
-                      onChange={handleInputChange}
-                      required
-                      fullWidth
-                      InputProps={{
-                        style: {
-                          height: "40px",
-                        },
-                      }}
-                    />
-                    <FormHelperText>Username should be unique</FormHelperText>
-                  </div>
+                  
                   <div>
                     <label htmlFor="firstname">First Name</label>
                     <br />
@@ -257,36 +233,6 @@ export default function Signup() {
                         },
                       }}
                     />
-                  </div>
-                  <div>
-                    <label>Select your preferred places:</label>
-                    <div>
-                      <input
-                        type="checkbox"
-                        name="forest"
-                        onChange={handleInputChange}
-                        checked={formData.places.forest}
-                      />
-                      <label htmlFor="forest">Forest</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        name="sea"
-                        onChange={handleInputChange}
-                        checked={formData.places.sea}
-                      />
-                      <label htmlFor="sea">Sea</label>
-                    </div>
-                    <div>
-                      <input
-                        type="checkbox"
-                        name="desert"
-                        onChange={handleInputChange}
-                        checked={formData.places.desert}
-                      />
-                      <label htmlFor="desert">Desert</label>
-                    </div>
                   </div>
                   <div>
                     <label htmlFor="password">Password</label>
@@ -416,7 +362,7 @@ export default function Signup() {
                 }}
               />
 
-              <Card variant="outlined" sx={{ maxWidth: 400 }}>
+              {/* <Card variant="outlined" sx={{ maxWidth: 400 }}>
                 <Typography sx={textstyle}>Features and benifits</Typography>
                 <Typography>
                   01.Route recommendation:
@@ -438,7 +384,7 @@ export default function Signup() {
                     activities and use filters to refine their search
                   </p>
                 </Typography>
-              </Card>
+              </Card> */}
             </Paper>
           </Grid>
         </Grid>

@@ -12,15 +12,17 @@ export default function Home() {
   const handleFindRoute = () => {
     navigate('/find-route');
   };
+  const handleConvertCurrency = () => {
+    navigate('/currency-converter');
 
-  const handleFindHotel = () => {
-    navigate('/find-hotel');
   };
+  const handleEmergencyConnector=()=>{
+    navigate('/emergency-connector');
+  }
 
-  const handleFindRestaurant = () => {
-    navigate('/find-restaurant');
-  };
-
+  const handleWeather=()=>{
+    navigate('/weather');
+  }
   
   const btnStyle = {
     backgroundColor: '#007bff',
@@ -54,16 +56,17 @@ export default function Home() {
           
         <>
             <button style={btnStyle} onClick={handleFindRoute}>Find a Route</button>
-            <button style={btnStyle} onClick={handleFindHotel}>Find a Hotel</button>
-            <button style={btnStyle} onClick={handleFindRestaurant}>Find a Restaurant</button>
+            <button style={btnStyle} onClick={handleConvertCurrency}>Convert Currency</button>
+            <button style={btnStyle} onClick={handleEmergencyConnector}>Emergency caller</button>
+            <button style={btnStyle} onClick={handleWeather}>Weather</button>
         </>
         }
         </div>
       </div>
-      <video autoPlay loop muted className="video-background">
+      {/* <video autoPlay loop muted className="video-background">
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
     </div></div>
   );
 }

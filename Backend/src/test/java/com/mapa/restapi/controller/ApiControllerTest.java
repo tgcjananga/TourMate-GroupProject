@@ -1,6 +1,7 @@
 package com.mapa.restapi.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.mapa.restapi.dto.UserDto;
 import com.mapa.restapi.model.User;
 import com.mapa.restapi.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
@@ -43,7 +44,7 @@ public class ApiControllerTest {
     @Test
     public void testGetUsers() throws Exception {
         User user = new User();
-        user.setId(1L);
+        user.setUserid(1L);
         user.setFirstname("Test User");
         user.setEmail("test@example.com");
 
@@ -61,18 +62,17 @@ public class ApiControllerTest {
     @Test
     public void testSaveUserSuccess() throws Exception {
         User user = new User();
-        user.setId(1L);
+        user.setUserid(1L);
         user.setFirstname("Test User");
         user.setEmail("test@example.com");
         user.setIdentifier("testID");
 
+        UserDto userDto = UserDto.builder().firstname(user.getFirstname()).build();
         String jsonRequest = objectMapper.writeValueAsString(user); //Convert user into jason format
 
         //What will userService return
         when(userService.findByEmail(anyString())).thenReturn(null);
-        when(userService.findUserByUserIdentifier(anyString())).thenReturn(null);
-        when(userService.saveUser(any(User.class))).thenReturn("User saved successfully");
-
+        when(userService.saveUser(any(User.class))).thenReturn(userDto);
 
         mockMvc.perform(post("/signup")
                         .content(jsonRequest)
@@ -80,7 +80,6 @@ public class ApiControllerTest {
                 .andExpect(status().isOk());    //Expected status code (200)
 
         verify(userService, times(1)).findByEmail(anyString());
-        verify(userService, times(1)).findUserByUserIdentifier(anyString());
         verify(userService, times(1)).saveUser(any(User.class));
     }
 
@@ -92,29 +91,12 @@ public class ApiControllerTest {
                         .contentType("application/json")
                         .content("{\"fisrtname\":\"Test User\", \"email\":\"test@example.com\", \"identifier\":\"testID\"}"))
                 .andExpect(status().isBadRequest())
-                .andExpect(content().string("Email Already Exists"));
+                .andExpect(content().string("Email Already Registered"));
 
         verify(userService, times(1)).findByEmail(anyString());
         verify(userService, never()).findUserByUserIdentifier(anyString());
         verify(userService, never()).saveUser(any(User.class));
     }
-
-    @Test
-    public void testSaveUserIdentifierExists() throws Exception {
-        when(userService.findByEmail(anyString())).thenReturn(null);
-        when(userService.findUserByUserIdentifier(anyString())).thenReturn(new User());
-
-        mockMvc.perform(post("/signup")
-                        .contentType("application/json")
-                        .content("{\"firstname\":\"Test User\", \"email\":\"test@example.com\", \"identifier\":\"testID\"}"))
-                .andExpect(status().isBadRequest())
-                .andExpect(content().string("NIC/Passport Already Exists"));
-
-        verify(userService, times(1)).findByEmail(anyString());
-        verify(userService, times(1)).findUserByUserIdentifier(anyString());
-        verify(userService, never()).saveUser(any(User.class));
-    }
-
 
 
     @Test

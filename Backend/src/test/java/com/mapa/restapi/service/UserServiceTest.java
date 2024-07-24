@@ -1,6 +1,7 @@
 package com.mapa.restapi.service;
 
 
+import com.mapa.restapi.dto.UserDto;
 import com.mapa.restapi.model.User;
 import com.mapa.restapi.repo.UserRepo;
 import org.junit.jupiter.api.BeforeAll;
@@ -77,8 +78,8 @@ class UserServiceTest {
     @Test
     void saveUserTest() {
         when(userRepo.findByEmail(user.getEmail())).thenReturn(Optional.ofNullable(user));
-        String msg = userService.saveUser(user);
-        assertEquals("User saved", msg);
+        UserDto userDto = userService.saveUser(user);
+        assertNotNull(userDto);
         verify(userRepo, times(1)).save(user);
     }
 

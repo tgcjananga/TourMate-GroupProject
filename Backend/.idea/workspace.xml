@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="e2d26534-1ce6-4111-8142-08cff0cb0e89" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/aad4ccda-541d-4293-b241-1de7bea9cb56.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/aad4ccda-541d-4293-b241-1de7bea9cb56/storage_v2/_src_/schema/tourmate.XYX8zw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/RestapiApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/controller/ApiController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/controller/ApiController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/controller/ForgotPasswordController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/dto/ChangePasswordDto.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/dto/MailBody.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/model/ForgotPassword.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/model/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/repo/ForgetPasswordRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/repo/UserRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/repo/UserRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/security/UserDetailsServiceImpl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/security/jwt/AuthEntryPoint.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/security/jwt/AuthTokenFilter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/security/jwt/JwtUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/service/EmailSenderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mapa/restapi/service/UserService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/user.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/adduser.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/user.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mapa/restapi/controller/ApiControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/mapa/restapi/controller/ApiControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mapa/restapi/controller/AuthControllerTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mapa/restapi/repo/UserRepoTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/mapa/restapi/service/UserServiceTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/RestapiApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/RestapiApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/controller/ApiController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/controller/ApiController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/controller/AuthController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/controller/AuthController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/controller/ForgotPasswordController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/controller/ForgotPasswordController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/dto/ChangePasswordDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/dto/ChangePasswordDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/dto/LoginDto.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/dto/LoginDto.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/dto/MailBody.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/dto/MailBody.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/ForgotPassword$ForgotPasswordBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/ForgotPassword$ForgotPasswordBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/ForgotPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/ForgotPassword.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/User$UserBuilder.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/User$UserBuilder.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/model/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/repo/ForgetPasswordRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/repo/ForgetPasswordRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/repo/UserRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/repo/UserRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/UserDetailsServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/UserDetailsServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/WebSecurityConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/WebSecurityConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/jwt/AuthEntryPoint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/jwt/AuthEntryPoint.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/jwt/AuthTokenFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/jwt/AuthTokenFilter.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/jwt/JwtUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/security/jwt/JwtUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/service/EmailSenderService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/service/EmailSenderService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/mapa/restapi/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/mapa/restapi/service/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/user.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/user.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/adduser.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/adduser.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/user.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/user.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/RestapiApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/RestapiApplicationTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/controller/ApiControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/controller/ApiControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/controller/AuthControllerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/controller/AuthControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/repo/UserRepoTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/repo/UserRepoTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/service/UserServiceTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/mapa/restapi/service/UserServiceTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/components/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/components/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/components/Navbar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/pages/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/pages/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/pages/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/pages/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../webpage/src/pages/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/../webpage/src/pages/Signup.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2jDWXETC8PXnk3AkWPJzaIo1Sh9" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;JUnit.ApiControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ApiControllerTest.testSaveUserSuccess.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.RestapiApplicationTests.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserRepoTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.UserServiceTest.executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Spring Boot.RestapiApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/University/4th sem/CO200 Project/TourMate-GroupProject/Backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\University\4th sem\CO200 Project\TourMate-GroupProject\Backend\src\main\java\com\mapa\restapi\service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.RestapiApplication">
+    <configuration name="ApiControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tourmate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mapa.restapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mapa.restapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.mapa.restapi.controller.ApiControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tourmate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mapa.restapi.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mapa.restapi.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.mapa.restapi.controller.AuthControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestapiApplicationTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tourmate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mapa.restapi.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mapa.restapi" />
+      <option name="MAIN_CLASS_NAME" value="com.mapa.restapi.RestapiApplicationTests" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserRepoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tourmate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mapa.restapi.repo.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mapa.restapi.repo" />
+      <option name="MAIN_CLASS_NAME" value="com.mapa.restapi.repo.UserRepoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="tourmate" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mapa.restapi.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.mapa.restapi.service" />
+      <option name="MAIN_CLASS_NAME" value="com.mapa.restapi.service.UserServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RestapiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="tourmate" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mapa.restapi.RestapiApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.UserServiceTest" />
+        <item itemvalue="JUnit.UserRepoTest" />
+        <item itemvalue="JUnit.AuthControllerTest" />
+        <item itemvalue="JUnit.ApiControllerTest" />
+        <item itemvalue="JUnit.RestapiApplicationTests" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e2d26534-1ce6-4111-8142-08cff0cb0e89" name="Changes" comment="" />
+      <created>1720922165318</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1720922165318</updated>
+      <workItem from="1720922166373" duration="1366000" />
+      <workItem from="1720932485302" duration="759000" />
+      <workItem from="1720968637484" duration="4845000" />
+      <workItem from="1720974086049" duration="204000" />
+      <workItem from="1721020623828" duration="2080000" />
+      <workItem from="1721038464416" duration="6085000" />
+      <workItem from="1721060052190" duration="5780000" />
+      <workItem from="1721095425753" duration="8994000" />
+      <workItem from="1721108085293" duration="2069000" />
+      <workItem from="1721111033785" duration="1054000" />
+      <workItem from="1721114150980" duration="826000" />
+      <workItem from="1721115332942" duration="8321000" />
+      <workItem from="1721183955545" duration="3408000" />
+      <workItem from="1721381686653" duration="2445000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

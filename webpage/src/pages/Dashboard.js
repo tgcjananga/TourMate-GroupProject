@@ -1,8 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import backgroundVideo from '../istockphoto-1362880565-640_adpp_is.mp4';
+// import backgroundVideo from '../istockphoto-1362880565-640_adpp_is.mp4';
 import { useNavigate } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+
+
 
 export default function Dashboard() {
   const navigate = useNavigate();
@@ -22,6 +23,17 @@ export default function Dashboard() {
   const handleSchedulePlan = () => {
     navigate('/schedule-plan');
   };
+  const handleConvertCurrency = () => {
+    navigate('/currency-converter');
+
+  };
+  const handleEmergencyConnector=()=>{
+    navigate('/emergency-connector');
+  }
+
+  const handleWeather=()=>{
+    navigate('/weather');
+  }
 
   const btnStyle = {
     backgroundColor: '#007bff',
@@ -33,7 +45,7 @@ export default function Dashboard() {
     marginRight: '16px' // Adjust the margin here
   };
   return (
-    <div><Navbar />
+    <div>
     <div className="container mt-5">
       <div className="jumbotron">
         <h1 className="display-4">Welcome to Tourmate</h1>
@@ -57,15 +69,18 @@ export default function Dashboard() {
             <button style={btnStyle} onClick={handleFindRoute}>Find a Route</button>
             <button style={btnStyle} onClick={handleFindHotel}>Find a Hotel</button>
             <button style={btnStyle} onClick={handleFindRestaurant}>Find a Restaurant</button>
-            <button style={btnStyle} onClick={handleSchedulePlan}>Schedule a Plan</button>
+            <button style={btnStyle} onClick={handleSchedulePlan}>Schedule a tour</button>
+            <button style={btnStyle} onClick={handleConvertCurrency}>Convert Currency</button>
+            <button style={btnStyle} onClick={handleEmergencyConnector}>Emergency caller</button>
+            <button style={btnStyle} onClick={handleWeather}>Weather</button>
         </>
         }
         </div>
       </div>
-      <video autoPlay loop muted className="video-background">
+      {/* <video autoPlay loop muted className="video-background">
         <source src={backgroundVideo} type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </video> */}
     </div></div>
   );
 }

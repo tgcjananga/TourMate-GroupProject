@@ -1,5 +1,6 @@
 package com.mapa.restapi.service;
 
+import com.mapa.restapi.dto.UserDto;
 import com.mapa.restapi.model.User;
 import com.mapa.restapi.repo.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +22,13 @@ public class UserService {
         return userRepo.findAll();
     }
 
-    public String saveUser(User user) {
+    public UserDto saveUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepo.save(user);
         if(userRepo.findByEmail(user.getEmail()).isPresent()) {
-            return "User saved";
+            return convertUserDto(user);
         }
-        return "User not saved";
+        return null;
 
     }
 
@@ -41,5 +42,15 @@ public class UserService {
 
     public User findUserByUserIdentifier(String identifier) {
         return  userRepo.getByIdentifier(identifier).orElse(null);
+    }
+
+    public  UserDto convertUserDto(User user){
+        return UserDto.builder()
+                .firstname(user.getFirstname())
+                .lastname(user.getLastname())
+                .age(user.getAge())
+                .gender(user.getGender())
+                .usertype(user.getUsertype())
+        .build();
     }
 }

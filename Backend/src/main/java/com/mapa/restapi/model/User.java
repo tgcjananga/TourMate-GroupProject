@@ -1,12 +1,10 @@
 package com.mapa.restapi.model;
 
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
 import lombok.*;
+
+import java.util.List;
 
 /*
 User Entity
@@ -22,7 +20,7 @@ PK : id (Auto Increment)
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long userid;
     private String firstname;
 
     @Column(nullable = false)
@@ -39,5 +37,27 @@ public class User {
 
     @OneToOne(mappedBy = "user")
     private ForgotPassword forgotPassword;
+
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL
+    )
+    private List<UserHistory> userHistories;
+
+    @OneToOne(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL
+    )
+    private UserPlan userPlan;
+
+
+    @OneToMany(
+            mappedBy = "user",
+            orphanRemoval = true,
+            cascade = CascadeType.ALL
+    )
+    private List<BookmarkedPlace> bookmarkedPlaces;
     
 }

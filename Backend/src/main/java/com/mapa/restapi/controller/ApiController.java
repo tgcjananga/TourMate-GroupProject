@@ -1,6 +1,7 @@
 package com.mapa.restapi.controller;
 
 
+import com.mapa.restapi.dto.UserDto;
 import com.mapa.restapi.model.User;
 import com.mapa.restapi.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,9 +32,12 @@ public class ApiController {
             return ResponseEntity.badRequest().body("Email Already Registered");
         }
 
-        String msg=userService.saveUser(user);
+        UserDto userdto = userService.saveUser(user);
+        if(userdto == null){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
+        }
 
-        return ResponseEntity.status(HttpStatus.OK).body(msg);
+        return ResponseEntity.status(HttpStatus.OK).body(userdto);
     }
 
     @DeleteMapping("/delete/{id}")
