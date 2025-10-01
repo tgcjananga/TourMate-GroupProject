@@ -1,30 +1,29 @@
 package com.mapa.restapi.model;
 
 import jakarta.persistence.*;
-import jakarta.persistence.Entity;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import java.util.Date;
+import lombok.*;
+import java.time.LocalDate;
 
 @Entity
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
+@ToString(exclude = {"user","attraction_id"})
+@Table(uniqueConstraints = {@UniqueConstraint(columnNames = {"user_id", "attraction_id"})})
 public class BookmarkedPlace {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int bookmarkID;
+    private long bookmarkID;
 
-    private Date date;
+    private LocalDate date;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "entity_id")
-    private EntityType entityID;
+    @ManyToOne (fetch = FetchType.EAGER,cascade = CascadeType.ALL)
+    @JoinColumn(name = "attraction_id")
+    private TouristAttraction attraction_id;
 
-
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
     private User user;
 }

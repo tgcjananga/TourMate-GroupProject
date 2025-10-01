@@ -1,0 +1,40 @@
+.paper {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100px;
+}
+
+.map-container {
+  height: 85vh;
+  width: 100%;
+}
+
+.marker-container {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.marker-container:hover {
+  z-index: 11;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.search-label {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Example box shadow */
+  padding: 3px;
+}
+
+.search-label:hover {
+  outline: rgb(83, 83, 235);
+  background-color: rgb(202, 214, 227);
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}

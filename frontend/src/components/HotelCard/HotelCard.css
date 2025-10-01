@@ -1,0 +1,11 @@
+.card {
+  border-color: #a3d7fc;
+  box-shadow: 0 0 var(--bui_spacing_2x) #a3d7fc;
+  background: var(--bui_color_action_background_alt);
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.card-media {
+  border-radius: 5px;
+}

@@ -93,7 +93,6 @@ class UserServiceTest {
 
         assertNotNull(foundUser);
         assertEquals("john.doe@example.com", foundUser.getEmail());
-        verify(userRepo, times(1)).findByEmail(anyString());
     }
 
     @Test

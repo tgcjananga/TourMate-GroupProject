@@ -1,31 +1,28 @@
 package com.mapa.restapi.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 @Entity
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Restaurant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int restaurantID;
-    private String name;
-    private String coordinates;
-    private String address;
+    private long restaurantID;
 
-    @OneToOne(
-            cascade = CascadeType.ALL
-    )
-    @JoinColumn(
-            name = "entityID"
-    )
-    private EntityType entityID;
-
-
+    private String name;          // Restaurant name
+    private double rating;        // Restaurant rating
+    private String location;      // City of the restaurant
+    private String image;         // Image URL of the restaurant
 
 }

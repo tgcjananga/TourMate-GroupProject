@@ -8,6 +8,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -40,6 +41,32 @@ public class UserService {
         return userRepo.findByEmail(email).orElse(null);
     }
 
+    public Optional<User> getUserByEmail(String email) {
+        return userRepo.findByEmail(email);
+    }
+
+    public User updateUserByEmail(String email, User updatedUser) {
+        Optional<User> user = userRepo.findByEmail(email);
+        if (user.isPresent()) {
+            User existingUser = user.get();
+            // Selectively update fields
+            if (updatedUser.getFirstname() != null) {
+                existingUser.setFirstname(updatedUser.getFirstname());
+            }
+
+            if (updatedUser.getLastname() != null) {
+                existingUser.setLastname(updatedUser.getLastname());
+            }
+
+            if (updatedUser.getIdentifier() != null) {
+                existingUser.setIdentifier(updatedUser.getIdentifier());
+            }
+            existingUser.setUsertype(updatedUser.getUsertype());
+            return userRepo.save(existingUser);
+        }
+        throw new RuntimeException("User not found");
+    }
+
     public User findUserByUserIdentifier(String identifier) {
         return  userRepo.getByIdentifier(identifier).orElse(null);
     }
@@ -48,8 +75,7 @@ public class UserService {
         return UserDto.builder()
                 .firstname(user.getFirstname())
                 .lastname(user.getLastname())
-                .age(user.getAge())
-                .gender(user.getGender())
+                .identifier(user.getIdentifier())
                 .usertype(user.getUsertype())
         .build();
     }

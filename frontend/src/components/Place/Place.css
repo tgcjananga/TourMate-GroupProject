@@ -1,0 +1,28 @@
+.chip {
+  margin: 5px 5px 5px 0;
+}
+
+.subtitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.spacing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.phoneLink {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  user-select: all;
+}
+
+.card-media:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,143 @@
+.nav-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 20px 10%;
+  background: #90c3ff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 2000;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.nav-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%; /* Adjust the width as needed */
+  height: 2px; /* Adjust the height as needed */
+  background: black; /* Color of the border line */
+}
+
+.nav-header.scrolled {
+  background: black;
+}
+
+.logo-image {
+  height: 150px; /* Adjust the height as needed */
+  width: auto; /* Maintain aspect ratio */
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+  margin-top: 32px;
+}
+.profile-logo {
+  height: 30px;
+  right: 5px;
+  width: auto; /* Maintain aspect ratio */
+  transition: filter 0.3s ease; /* Smooth transition for filter */
+  margin-left: 10px;
+}
+
+.profile-logo:hover {
+  background-color: #c5c3c3;
+  border-radius: 10px;
+}
+
+.nav-profile.scrolled .profile-logo {
+  filter: brightness(0) invert(1); /* Change the logo color on scroll */
+}
+
+.nav-logo.scrolled .logo-image {
+  filter: brightness(0) invert(1); /* Change the logo color on scroll */
+}
+.nav-links {
+  display: flex; /* Ensure the links remain on the same line */
+  gap: 20px; /* Space between links */
+}
+.nav-links a {
+  position: relative;
+  font-size: 20px;
+  color: black;
+  font-weight: 500;
+  transition: color 0.3s ease;
+  text-decoration: none;
+  margin-left: 20px;
+}
+.nav-links a.scrolled {
+  color: white;
+}
+
+.nav-links a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 100%;
+  width: 0;
+  height: 2px;
+  background: white;
+  transition: 0.3s;
+}
+.nav-links a:hover::before {
+  width: 100%;
+}
+
+/*Sign in button---------------------------------------*/
+.link-button {
+  text-decoration: none; /* Remove underline */
+}
+.signin-btn {
+  /* Sign in button */
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  gap: 14px;
+  /* Assests colour */
+  background: #ff6f61;
+  border-radius: 100px;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition */
+  cursor: pointer;
+}
+
+.signin-btn:hover {
+  background-color: #ff3b2f; /* Change background color on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}
+
+/*Logout button*/
+.logout-btn {
+  /* Sign in button */
+
+  font-size: 18px;
+  font-weight: 500;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 40px;
+  gap: 14px;
+  /* Assests colour */
+  background: #90c3ff;
+  border: 2px solid black;
+  border-radius: 100px;
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Add transition */
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  border: none;
+  color: white;
+  background-color: #ff3b2f; /* Change background color on hover */
+  transform: scale(1.05); /* Slightly enlarge the button on hover */
+}

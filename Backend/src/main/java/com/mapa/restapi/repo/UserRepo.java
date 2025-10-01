@@ -12,7 +12,10 @@ import jakarta.transaction.Transactional;
 @Repository
 public interface UserRepo extends JpaRepository<User, Long> {
 
+    @Query(value = "select * from user where email=?1",nativeQuery = true)
     Optional<User> findByEmail(String email); // Update method name to findByEmail
+
+    @Query(value = "select * from user where identifier=?1",nativeQuery = true)
     Optional<User> getByIdentifier(String identifier);
 
     @Transactional

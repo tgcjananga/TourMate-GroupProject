@@ -1,4 +1,29 @@
+# Node.js dependencies
+frontend/node_modules/
+frontend/.env
 
-Backend/.idea/compiler.xml
-Backend/.idea/dataSources.local.xml
-Backend/.idea/dataSources.xml
+# Maven/Gradle output
+backend/target/
+backend/build/
+
+# Logs
+*.log
+
+# IntelliJ IDEA files
+*.iml
+.idea/
+
+# Eclipse/STS files
+.project
+.classpath
+.settings/
+
+# VS Code files
+.vscode/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+*.env

@@ -1,0 +1,78 @@
+/* src/Components/Footer/Footer.css */
+.footer-container {
+  padding: 0px 0;
+  margin-top: 20px;
+  bottom: 20px;
+  text-align: center;
+}
+
+.footer-content {
+  display: flex; /* Use Flexbox for the parent container */
+  justify-content: space-between; /* Space between the columns */
+  align-items: center; /* Center items vertically */
+}
+.column:first-child {
+  justify-content: flex-start; /* Align the logo to the left */
+  padding-left: 226px;
+}
+
+.column:last-child {
+  justify-content: flex-end; /* Align the social icons to the right */
+  padding-right: 226px;
+}
+
+.logo-image {
+  width: 93px;
+  height: 93px;
+  margin: 0px;
+  align-self: flex-start;
+}
+.line {
+  flex-grow: 1; /* Make the line take up available space */
+  height: 2px; /* Adjust the height as needed */
+  background-color: black; /* Adjust the color as needed */
+  margin: 0 auto; /* Optional: Add some space around the line */
+  width: 80%;
+}
+.social-icons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; /* Center the social icons horizontally */
+  padding: 0px;
+  margin-top: 10px;
+  gap: 32px;
+  height: 27px;
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.social-icons a SVG {
+  color: rgb(0, 0, 0);
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover SVG {
+  color: #ff6f61; /* Change color on hover */
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Center horizontally */
+  padding: 0px;
+  height: 54px;
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.footer-bottom a {
+  width: 232px;
+  height: 21px;
+  text-align: center; /* Center text inside the link */
+}
